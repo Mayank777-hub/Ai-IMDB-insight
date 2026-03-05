@@ -88,6 +88,7 @@ http://localhost:3000
 * Some ratings may not appear if the API does not return them.
 * No database storage (data fetched only from API).
 * some movies section is currently static.
+* Language option will take time to convert so wait for 10-15s or refresh if after 30s it not work.
 ---
 
 
