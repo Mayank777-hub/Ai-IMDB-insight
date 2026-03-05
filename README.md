@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Movie Search Web App
 
-## Getting Started
+A simple movie search web application built using **Next.js** and the **OMDb API,TMDB API**.
+Users can search for movies and view detailed information including ratings, genre, and runtime.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+##  Features
+
+*    **Movie Search**
+
+  * Users can search any movie using the search bar.
+  * Fetches data from the **OMDb API**.
+
+*  **Movie Details Page**
+
+  * Displays detailed information about the selected movie.
+  * Includes:
+
+    * Movie poster
+    * Title
+    * Year
+    * Runtime
+    * Rating
+    * Genre
+    * Plot summary
+
+* **Backdrop Section**
+
+  * Movie poster displayed as a large header background.
+  * Gradient overlay for better readability.
+
+* **Ratings Display**
+
+  * IMDb rating
+  * Rotten Tomatoes rating (if available)
+
+*  **Responsive Layout**
+
+  * Works on different screen sizes.
+
+---
+
+## Tech Stack
+
+* **Next.js**
+* **React**
+* **JavaScript**
+* **OMDb API**
+* **CSS**
+
+---
+## Installation
+1. Clone  repo
 ```
+git clone <your-repository-link>
+```
+2. Install dependency.
+```
+npm install / npm i
+```
+3. Create a `.env.local` file
+```
+MOVIEAPI_KEY=your_omdb_api_key
+TMDB_KEY=yourkey
+NEXT_PUBLIC_TMDB_KEY=your key  //next and TmDB key = same
+GEMINI_KEY=yourkey
+GROQ_KEY=yourkey
+```
+4. Run server by
+```
+npm run dev
+```
+Open in browser:
+```
+http://localhost:3000
+```
+---
+## Screenshots
+### Home Page
+![Home Page](app/screen/front.png)
+### Movie Details Page
+![Moviedetail Page](app/screen/detail.png)
+### Search Result
+![Moviedetail Page](app/screen/output.png)
+---
+## Some Limits
+* Some ratings may not appear if the API does not return them.
+* No database storage (data fetched only from API).
+* some movies section is currently static.
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
