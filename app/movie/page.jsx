@@ -176,7 +176,7 @@ Rules: verdict = Positive OR Mixed OR Negative. Scores must total 100. Base scor
       {movie.backdrop && (
         <div style={{ position: "relative", width: "100%", height: "420px", overflow: "hidden" }}>
           <img src={movie.backdrop} alt={movie.title}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            style={{ width: "100%", height: "100%", objectFit: "cover",   objectPosition: "top center"}} />
           <div style={{
             position: "absolute", inset: 0,
             background: "linear-gradient(to bottom, rgba(0,0,0,0.2), #0f0f0f)"
