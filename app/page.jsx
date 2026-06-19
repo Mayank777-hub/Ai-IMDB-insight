@@ -227,7 +227,7 @@ export default function Page() {
             />
             {error && <p style={{ color: "red", fontSize: "12px", marginTop: "5px" }}>{error}</p>}
           </div>
-          <Link className="wish" href="/analyse/dashboard">
+          <Link className="wish" href="/analyse">
             <FontAwesomeIcon icon={faChartLine} style={{ color: "yellow" }} />
             <h6 style={{ color: "white" }}>{content.wishlist}</h6>
           </Link>
