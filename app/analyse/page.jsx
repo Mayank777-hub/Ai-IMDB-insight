@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation";
-import "./homepage.css"
+import "../homepage.css"
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
