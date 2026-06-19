@@ -1,5 +1,6 @@
 import React from 'react'
 import {Users,MousePointerClick,Clock,radar} from 'lucide-react'
+import "../dash.css"
 const dashboard = () => {
   return (
     <div className='upper'>
