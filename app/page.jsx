@@ -2,20 +2,21 @@
 import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation";
 import "./homepage.css"
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   faXTwitter, 
   faFacebook, 
   faReddit 
 } from "@fortawesome/free-brands-svg-icons";
-import { faStar, faCircleArrowLeft, faCircleArrowRight, faBookOpenReader, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faCircleArrowLeft, faChartLine,faCircleArrowRight, faBookOpenReader, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 const old = {
   menu: "Menu",
   placeholder: "Search your movie here...",
   signin: "Sign In",
   welcome: "Welcome to Movie Search",
   errorEmpty: "Searchbar cannot be empty",
-  wishlist: "WishList",
+  wishlist: "Dashboard",
   topShows: "Top TV/Shows",
   browseCategories: "Browse By Categories",
   top10Heading: "Top 10 IMDB rated Movies, Webseries & Shows",
@@ -226,10 +227,10 @@ export default function Page() {
             />
             {error && <p style={{ color: "red", fontSize: "12px", marginTop: "5px" }}>{error}</p>}
           </div>
-          <div className="wish">
-            <FontAwesomeIcon icon={faBookOpenReader} style={{ color: "yellow" }} />
+          <Link className="wish" href="/analyse/dashboard">
+            <FontAwesomeIcon icon={faChartLine} style={{ color: "yellow" }} />
             <h6 style={{ color: "white" }}>{content.wishlist}</h6>
-          </div>
+          </Link>
           <div className="signin">{content.signin}</div>
           <div className="language">
             <select onChange={(e) => translate(e.target.value)}>

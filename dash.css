@@ -1,0 +1,16 @@
+.upper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.up{
+    width: 40% ;
+    height: 5vh;
+    background:linear-gradient(to left,black,blue);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
