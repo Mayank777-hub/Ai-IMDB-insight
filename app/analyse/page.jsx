@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { Users, MousePointerClick, Clock, radar } from 'lucide-react'
+import { Users, MousePointerClick, Clock, Radar,ChartNoAxesCombined } from 'lucide-react'
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import "../dash.css"
 import { Line, Bar,Doughnut } from "react-chartjs-2"
@@ -36,20 +36,20 @@ const dashboard = () => {
      ],                                                       // fall back in case if api not work still chart show some data.
      "Germany":
      [
-      {State:"Maharashtra",Sessions:"150"},
-     {State:"Delhi",Sessions:"95"},
-     {State:"Uttar Pradesh",Sessions:"162"},
-     {State:"Punjab",Sessions:"49"},
-     {State:"Hyderabad",Sessions:"230"},
-     {State:"Arunachal Pradesh",Sessions:"15"}
+      {State:"Berlin",Sessions:"170"},
+     {State:"Bavaria",Sessions:"105"},
+     {State:"North Rhine",Sessions:"62"},
+     {State:"Westphalia",Sessions:"109"},
+     {State:"Hamburg",Sessions:"20"},
+     {State:"Baden-Württemberg",Sessions:"50"}
      ],                                                       // fall back in case if api not work still chart show some data.
      "Canada":
      [
-      {State:"Maharashtra",Sessions:"150"},
-     {State:"Delhi",Sessions:"95"},
-     {State:"Uttar Pradesh",Sessions:"162"},
-     {State:"Punjab",Sessions:"49"},
-     {State:"Hyderabad",Sessions:"230"},
+      {State:"Ontario",Sessions:"50"},
+     {State:"Quebec",Sessions:"70"},
+     {State:"British Columbia",Sessions:"62"},
+     {State:"Punjab",Sessions:"39"},
+     {State:"Hyderabad",Sessions:"20"},
      {State:"Arunachal Pradesh",Sessions:"15"}
      ],                                                       // fall back in case if api not work still chart show some data.
      "United Kingdom":
@@ -67,6 +67,49 @@ const dashboard = () => {
     { State: "New York", Sessions: 90 }
   ]
     }
+     
+const timelineData = {
+  Week: {
+    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    datasets: [
+      {
+        label: 'Active Users (Weekly)',
+        data: [420, 566, 490, 710, 680, 820, 910],
+        borderColor: 'white',
+        backgroundColor: 'rgb(218, 194, 14)',
+        tension: 0.3,
+        pointBackgroundColor: 'yellow',
+      },
+    ],
+  },
+  Month: {
+    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+    datasets: [
+      {
+        label: 'Active Users (Monthly)',
+        data: [2100, 2400, 1950, 2800],
+        borderColor: 'white',
+        backgroundColor: 'rgb(218, 194, 14)',
+        tension: 0.3,
+        pointBackgroundColor: 'yellow',
+      },
+    ],
+  },
+  Year: {
+    labels: ['Y1', 'Y2', 'Y3', 'Y4'],
+    datasets: [
+      {
+        label: 'Active Users (Yearly)',
+        data: [8500, 9200, 11000, 12500],
+        borderColor: 'white',
+        backgroundColor: 'rgb(218, 194, 14)',
+        tension: 0.3,
+        pointBackgroundColor: 'yellow',
+      },
+    ],
+  },
+};
+
   const [selectday,setselectday] = useState('week');
   const [open, setOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] =useState("India");
@@ -76,12 +119,14 @@ const dashboard = () => {
       {
         label: 'Active Users',
         data: [420, 566, 490, 710, 680, 820, 910],
-        borderColor: 'white', // Aqua line
+        borderColor: 'rgb(218, 194, 14)', // Aqua line
         backgroundColor: 'rgb(218, 194, 14)',
         tension: 0.3,
         pointBackgroundColor: 'yellow',
       },
+      
     ],
+    
   };
 
 
@@ -133,8 +178,18 @@ const Donutdata = {
         labels: {
           color: "rgb(255, 255, 255)"
         }
-      }
+      },
+       datalabels: {
+        color: "white", 
+        align: "top",     
+        anchor: "center",    
+        offset: 4,
+        font: {
+          size: 12
+        }
+      },
     },
+   
     scales: {
       x: {
         ticks: {
@@ -189,7 +244,7 @@ const Donutdata = {
           <div>Most Visited</div>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '8px' }}>
             <div className='Adata'>/Search</div>
-            <Clock size={20} style={{ color: "red" }} />
+            <Radar size={20} style={{ color: "red" }} />
           </span>
           <p>Acc to pages</p>
         </li>
@@ -198,14 +253,14 @@ const Donutdata = {
     <div className='activergeo'>
       <div className='chart-row'>
         <div className='chart-container'>
-          <h3 >📈 Active Users Growth</h3>
+          <h3 > Active Users Growth</h3>
           <div className='chart-wrapper'>
-            <Line data={lineData} options={chartOptions} />
+            <Line data={timelineData[selectday] || timelineData.Week} options={chartOptions} />
           </div>
         </div>
 
         <div className='chart-container'>
-          <h3 >🌍 Top 5 Traffic Locations</h3>
+          <h3 > Top 5 Traffic Locations</h3>
           <div className='chart-wrapper'>
             <Bar data={barData} options={horizontalBarOptions} />
           </div>

@@ -1,16 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import { ChartNoAxesColumnIncreasing } from "lucide-react";
 export default function HeatmapView() {
   const [selectedUrl, setSelectedUrl] = useState("http://localhost:3000/");
   const [gridData, setGridData] = useState({});
   const [maxClicks, setMaxClicks] = useState(1);
   
-  // Dynamic matrix boundaries based on incoming data maximums
+  
   const [gridDimensions, setGridDimensions] = useState({ rows: 12, cols: 26 });
 
-  const CELL_SIZE = 55; // Slightly smaller to fit more boxes across the dashboard width cleanly
+  const CELL_SIZE = 55; 
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/heatmap?pageUrl=${encodeURIComponent(selectedUrl)}`)
@@ -26,7 +26,7 @@ export default function HeatmapView() {
           const row = Math.floor(click.y / CELL_SIZE);
           const cellKey = `${row}-${col}`;
 
-          // Keep track of the highest coordinates seen to expand the grid container dynamically
+          
           if (col > maxColFound) maxColFound = col;
           if (row > maxRowFound) maxRowFound = row;
 
@@ -36,7 +36,7 @@ export default function HeatmapView() {
           }
         });
 
-        // Add padding buffers so coordinates never clip the edges
+        
         setGridDimensions({ rows: maxRowFound + 2, cols: maxColFound + 2 });
         setGridData(matrix);
         setMaxClicks(highestCount);
@@ -51,16 +51,16 @@ export default function HeatmapView() {
     <div style={{
       padding: "24px",
       margin: "24px auto",
-      backgroundColor: "#ffffff",
+      backgroundColor: "white",
       borderRadius: "12px",
-      border: "1px solid #e5e7eb",
-      color: "#000000",
+      border: "1px solid rgb(229, 231, 235)",
+      color: "black",
       fontFamily: "sans-serif"
     }}>
-      <h2 style={{ fontSize: "1.25rem", fontWeight: "bold", marginBottom: "4px" }}>
-        📊 Row & Column Grid Heatmap
+      <h2 style={{ fontSize: "1.25rem", fontWeight: "bold", marginBottom: "4px",display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"row", gap:"5px",width:"100vw",height:"50px"}}>
+        <ChartNoAxesColumnIncreasing size={20}/> Row & Column Grid Heatmap
       </h2>
-      <p style={{ fontSize: "0.875rem", color: "#6b7280", marginBottom: "16px" }}>
+      <p style={{ fontSize: "0.875rem", color: "rgb(107, 114, 128)", marginBottom: "16px" }}>
         Click concentrations mapped into responsive grid matrix zones.
       </p>
 
@@ -69,11 +69,11 @@ export default function HeatmapView() {
           value={selectedUrl} 
           onChange={(e) => setSelectedUrl(e.target.value)}
           style={{
-            border: "1px solid #d1d5db",
+            border: "1px solid rgb(209, 213, 219)",
             padding: "8px 12px",
             borderRadius: "8px",
-            backgroundColor: "#f9fafb",
-            color: "#000000",
+            backgroundColor: "rgb(249, 250, 251)",
+            color: "black",
             fontSize: "0.875rem"
           }}
         >
@@ -82,12 +82,12 @@ export default function HeatmapView() {
         </select>
       </div>
 
-      {/* Overflow-X wrapper ensures wide screen coordinates (like 1470px) scroll cleanly instead of clipping */}
+      
       <div style={{ width: "100%", overflowX: "auto", whiteSpace: "nowrap" }}>
         <div style={{ 
           display: "inline-block",
-          border: "2px solid #334155", 
-          backgroundColor: "#0f172a", 
+          border: "2px solid rgb(51, 65, 85)", 
+          backgroundColor: "rgb(15, 23, 42)", 
           padding: "4px",
           borderRadius: "8px" 
         }}>
@@ -114,7 +114,7 @@ export default function HeatmapView() {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      color: clickCount > 0 ? "#ffffff" : "#475569",
+                      color: clickCount > 0 ? "white" : "#475569",
                       fontSize: "0.7rem",
                       fontWeight: "bold",
                       flexShrink: 0

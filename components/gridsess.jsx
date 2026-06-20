@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Users, Route, Clock, MousePointer } from "lucide-react";
+import { Users, Route, Clock, MousePointer ,ChartNoAxesCombined,IdCard} from "lucide-react";
 import "./sessions.css"; 
 
 export default function SessionsView() {
@@ -59,7 +59,7 @@ export default function SessionsView() {
                     onClick={() => handleSessionClick(sess._id)}
                     className={`session-item-row ${isSelected ? "selected" : ""}`}
                   >
-                    <div className="session-id-text">🆔 ID: {sess._id}</div>
+                    <div className="session-id-text"><IdCard/> ID: {sess._id}</div>
                     <div className="session-count-text">
                        Total Actions: <strong>{sess.eventCount}</strong>
                     </div>
@@ -79,7 +79,7 @@ export default function SessionsView() {
                 <Route size={24} style={{ marginBottom: "8px", display: "block" }} />
                 Select a session row on the left to unpack the event stream traces
               </div>
-            ) : loadingJourney ? (
+            ) : loadJ ? (
               <div className="journey-placeholder">Loading user event log traces...</div>
             ) : (
               <div className="journey-stream-container">
