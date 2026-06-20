@@ -1,16 +1,141 @@
+
+body {
+    background: linear-gradient(to left, black, rgb(15, 7, 45));
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .upper{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    width: 100vw;
+    height: 32vh;
+    border:1px solid white;
+    background: linear-gradient(to right,white);
 }
-.up{
-    width: 40% ;
-    height: 5vh;
-    background:linear-gradient(to left,black,blue);
-    color: white;
+.upper ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+}
+
+.up {
+     background-color:white;
+}
+ ul .up{
+    width: 14vw ;
+    height: 14vh;
+    color: blue;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    border-left: 5px solid rgb(153, 10, 10);
+}
+.dashhead {
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100vw;
+    height: 50px;
+}
+.activergeo{
+    background-color: white;
+    width: 100vw;
+    height: 60vh;
+    border: 1px solid black;
+}
+
+.chart-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding: 0 2vw;
+    margin-top: 20px;
+    gap: 2vw; 
+    background-color: rgb(255, 255, 255);
+    height: 40vh;
+    border: 1px solid gray;
+}
+
+
+.chart-container {
+    width: 38vw; 
+    background-color:rgb(62, 59, 113);
+    border: 1px solid rgba(128, 28, 28, 0.1);
+    padding: 15px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-container h3 {
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px; 
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 32vh; 
+    background-color: black;
+}
+.Anapan{
+    width: 100vw;
+    min-height:150px;
+    height:auto;
+    background-color: white;
+    color: black;
+    border-left: 5px solid aqua;
+}
+.Anapan h3{
+    color:black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration-style: solid;
+}
+.viewanalyze{
+   color: blue;
+   width: 4vw;
+   height: 4vh;
+}
+.rotaetraff{
+  color: blueviolet;
+  transition: transform 0.3s ease; 
+}
+.rotaetraff.open {
+  color:blue;
+  transform:rotate(180deg);
+}
+.analyzecontent {
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease;
+}
+.analyzecontent.show{
+ max-height: 1200px;
+}
+.showdonut {
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
 }
