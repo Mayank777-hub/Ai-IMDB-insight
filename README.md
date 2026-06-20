@@ -1,4 +1,4 @@
-# Movie Search Web App
+# Movie Search Web App (Website + Dashboard)
 
 A simple movie search web application built using **Next.js** and the **OMDb API,TMDB API**.
 Users can search for movies and view detailed information including ratings, genre, and runtime.
