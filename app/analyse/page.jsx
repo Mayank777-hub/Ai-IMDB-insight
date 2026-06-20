@@ -6,18 +6,10 @@ import "../dash.css"
 import { Line, Bar,Doughnut } from "react-chartjs-2"
 import { useState,useEffect } from 'react'
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
+  Chart as ChartJS, CategoryScale,LinearScale,PointElement,LineElement,BarElement,Title,Tooltip,Legend,ArcElement,
 } from 'chart.js';
-
+import HeatmapView from "../../components/heatmap";
+import SessionsView from "../../components/gridsess.jsx";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -296,6 +288,10 @@ const Donutdata = {
         </div>
       </div>
     </div>
+    <SessionsView />
+    <div className="heatmap-section">
+   <HeatmapView />
+</div>
   </>
 }
 

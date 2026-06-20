@@ -5,6 +5,8 @@ const UserEventSchema = new mongoose.Schema({
     type: String, 
     required: true 
   },
+  country: { type: String, default: "Unknown" },
+  state: { type: String, default: "Unknown" },
   event_type: { 
     type: String, enum: [ "page_view",  "click",  "scroll",  "search",  "form_submit",  "add_to_cart",  "custom"], 
     required: true 

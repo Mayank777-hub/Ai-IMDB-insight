@@ -1,8 +1,17 @@
 const Event = require("../models/schema");
-
+const geoip = require("geoip-lite"); // we can use this to find ip address and i use it to get nationality of users
 const createEvent = async (req, res) => {
   try {
-    const event = await Event.create(req.body);
+  
+    let ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+    const geo = geoip.lookup(ip);
+
+    const Userdata = {
+      ...req.body,
+      country: geo ? geo.country : "Anonymous",  // :-) may be use vpn
+      state: geo ? geo.region : "Unknown"    
+    };
+      const event = await Event.create(Userdata);
     res.status(201).json({ success: true, event });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
@@ -38,11 +47,17 @@ const Userevent_track = async (req, res) => {
 
 const Heatdata = async (req, res) => {
   try {
-    const clicks = await Event.find({
-      page_url: req.query.pageUrl,
-      event_type: "click"
-    }).select("x y"); 
+    const targetUrl = req.query.pageUrl;
+    let queryCondition = { event_type: "click" };
+
     
+    if (targetUrl && targetUrl.includes("/movie")) {
+      queryCondition.page_url = { $regex: /\/movie/ };
+    } else {
+      queryCondition.page_url = targetUrl;
+    }
+
+    const clicks = await Event.find(queryCondition).select("x y"); 
     res.status(200).json(clicks);
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });

@@ -14,6 +14,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "geoip-lite": "^1.4.10",
     "heatmap.js": "^2.0.5",
     "mongoose": "^9.7.1"
   },
