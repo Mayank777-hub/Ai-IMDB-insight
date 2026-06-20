@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import { Users, MousePointerClick, Clock, radar } from 'lucide-react'
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import "../dash.css"
 import { Line, Bar,Doughnut } from "react-chartjs-2"
 import { useState,useEffect } from 'react'
@@ -14,7 +15,7 @@ import {
   Title,
   Tooltip,
   Legend,
-  ArcElement
+  ArcElement,
 } from 'chart.js';
 
 ChartJS.register(
@@ -24,6 +25,7 @@ ChartJS.register(
   LineElement,
   BarElement,
   ArcElement,
+  ChartDataLabels,
   Title,
   Tooltip,
   Legend
@@ -276,7 +278,17 @@ const Donutdata = {
     plugins: {
       legend: {
         position: "bottom",
+        display: true,
       },
+      datalabels: {
+            color: "white", 
+            font: {
+              size: 12
+            }
+          },
+          tooltip:{
+            enabled:true,
+          }
     },
   }}
       
